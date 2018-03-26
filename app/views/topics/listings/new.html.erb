@@ -1,16 +1,3 @@
-<%= form_tag create_listing_path, method: 'post' do %>
 
-  <%= text_field_tag "listing[title]" %>
-  <%= number_field_tag "listing[price]" %>
-  <%= text_field_tag "listing[description]"%>
-  <%= text_field_tag "listing[author]" %>
-  <%= collection_select(:listing,
-   :topic_id,
-   Topic.all,
-   :id,
-   :title,
-   { selected: (params[topic_id] if params[:topic_id])}) %>
 
-  <%= submit_tag 'Save' %>
-
-<% end %>
+<%= render partial: 'form', locals: { source: 'new' } %>

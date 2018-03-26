@@ -1,0 +1,19 @@
+
+<%= form_tag form_route(source), method: form_action(source) do %>
+
+  <%= text_field_tag "listing[title]", (@listing.title if @listing) || "" %>
+  <%= number_field_tag "listing[price]", (@listing.price if @listing) || "" %>
+  <%= text_field_tag "listing[description]", (@listing.description if @listing) || "" %>
+  <%= text_field_tag "listing[author]", (@listing.author if @listing) || "" %>
+
+  <%= collection_select(:listing, 
+                        :topic_id, 
+                        Topic.all, 
+                        :id,
+                        :title,
+                        { selected: (params[:topic_id] if params[:topic_id])}) 
+  %>
+
+  <%= submit_tag 'Save' %>
+
+<% end %>
