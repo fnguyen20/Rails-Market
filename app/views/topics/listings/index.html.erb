@@ -1,0 +1,5 @@
+<%= @listings.each do |listing| %>
+  <%= link_to "New Listing", new_listing_path(topic_id: @topic.id) %>
+  <%= listing.content %>
+  <%= listing.user.username %>
+<% end %>

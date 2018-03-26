@@ -42,7 +42,7 @@ RSpec.configure do |config|
   config.after(:each) { DatabaseCleaner.clean }
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-
+  
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
