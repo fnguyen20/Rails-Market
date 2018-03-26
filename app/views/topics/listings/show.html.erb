@@ -1,3 +1,10 @@
 <h1><%= @listing.title %></h1>
-<p><%= @listing.topic.title %></p>
+<p><%= @listing.title %></p>
+<p><%= @listing.price %></p>
+<p><%= @listing.description %></p>
+<p><%= @listing.author %></p>
 <p><%= @listing.user.full_name %></p>
+
+<% if current_user && @listing.user_id == current_user.id %>
+<%= link_to "Edit listing", edit_topic_listing_path(topic_id: @topic.id, id: @listing.id) %>
+<% end %>

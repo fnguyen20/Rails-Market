@@ -37,3 +37,15 @@ User.create!(
 
 puts "Student user created"
 
+50.times do |listing|
+  Listing.create!(
+    title: "My Post #{listing}",
+    price: 12,
+    description: "Some amazing description here",
+    author: "John",
+    topic_id: Topic.last.id,
+    user_id: User.last.id
+  )
+end
+
+puts "50 posts were created"
