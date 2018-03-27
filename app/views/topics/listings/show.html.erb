@@ -1,3 +1,4 @@
+<% if false %>
 <h1><%= @listing.title %></h1>
 <p><%= @listing.title %></p>
 <p><%= @listing.price %></p>
@@ -8,3 +9,44 @@
 <% if current_user && @listing.user_id == current_user.id %>
 <%= link_to "Edit listing", edit_topic_listing_path(topic_id: @topic.id, id: @listing.id) %>
 <% end %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9 article-content pull-left">
+        <h1 class="col-xs-6 pull-left"><%= @listing.title %></h1>
+        <span>By <strong><%= @listing.user.full_name %></strong> <%= @listing.created_at.strftime("Published: on %m/%d/%Y at %l:%M%P") %></span>
+
+        <p><strong>Topic:</strong> <%= @listing.topic.title %></p>
+
+        <div class="clearfix"></div>
+
+        <p class="col-xs-8 first"><%= number_to_currency(@listing.price) %></p>
+
+        <ul class="social-box clearfix">
+            <li>
+                <span class="icon facebook-icon"></span>
+                <p>226</p>
+            </li>
+            <li>
+                <span class="icon twitter-icon"></span>
+                <p>28</p>
+            </li>
+            <li>
+                <span class="icon pinterest-icon"></span>
+                <p>4793</p>
+            <li>
+                <span class="icon google-icon"></span>
+                <p>8</p>
+            </li>
+        </ul>
+        <hr/>
+
+        <div class="actions">
+            <% if current_user && @listing.user_id == current_user.id %>
+              <%= link_to "Edit Listing", edit_topic_listing_path(topic_id: @topic.id, id: @listing.id), class: 'btn btn-default btn-green' %>
+            <% end %>
+        </div>
+
+    </div>
+   

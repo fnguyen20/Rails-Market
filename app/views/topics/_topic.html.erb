@@ -1,3 +1,4 @@
-<div>
-  <%= link_to topic.title, topic %>
+
+<div class='col-md-3 topics text-center'>
+  <%= link_to topic.title, topic_listings_path(topic_id: topic) %>
 </div>

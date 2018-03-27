@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+
   resources :topics do
     scope module: :topics do
-      resources :listings, except: [:new]
+      resources :listings, except: [:new, :create]
     end
   end
   get 'listings/new', to: 'topics/listings#new', as: 'new_listing'

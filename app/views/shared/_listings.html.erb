@@ -1,0 +1,39 @@
+<% @listings.each do |listing| %>
+          <li class="clearfix">
+            <div class="ratings">
+              <a href="#up" class="up"></a>
+              <h1>1178</h1>
+              <a href="#down" class="down"></a>
+            </div>
+
+            <div class="article-image">
+              <div class="mask"></div>
+              <%= image_tag "/assets/default-noimage.jpg" %>
+
+            </div>
+
+            <div class="article-desc">
+             <h2><%= link_to listing.title, topic_listing_path(topic_id: listing.topic.slug, id: listing) %></h2>
+
+              <p><%= listing.price %></p>
+              <span>By <strong><%= listing.user.username %></strong> <%= listing.created_at %></span>
+            </div>
+
+            <div class="article-stats">
+              <ul class="pull-right">
+                <li>
+                  <span class="icon icon-view"></span>
+                  <h2>347</h2>
+                </li>
+                <li>
+                  <span class="icon icon-comment"></span>
+                  <h2>347</h2>
+                </li>
+                <li>
+                  <span class="icon icon-connection"></span>
+                  <h2>347</h2>
+                </li>
+              </ul>
+            </div>
+          </li>
+        <% end %>
