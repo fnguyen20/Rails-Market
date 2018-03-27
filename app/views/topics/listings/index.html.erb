@@ -1,5 +1,16 @@
-<%= @listings.each do |listing| %>
-  <%= link_to "New Listing", new_listing_path(topic_id: @topic.id) %>
-  <%= listing.description %>
-  <%= listing.user.username %>
-<% end %>
+
+<div class="container">
+<div class="float-right">
+<%= link_to "New listing", new_listing_path(topic_id: @topic.id) %></div>
+  <h1><%= @topic.title %></h1>
+
+  <div class="row">
+    <div class="col-xs-9 pull-left">
+      <ul class="articles">
+      	<%= render 'shared/listings' %>
+      </ul>
+    </div>
+  </div>
+<%= paginate @listings %>
+
+</div>
